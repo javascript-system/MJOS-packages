@@ -1,0 +1,16 @@
+{
+  "name": "test_app",
+  "version": "1.0.0",
+  "author": "MJOS User",
+  "html": "index.html",
+  "func": "main.js",
+  "Communication": true,
+  "styles": {
+    "background": "black",
+    "color": "blue",
+    "border": "blue",
+    "width": "900",
+    "height": "700",
+    "resize": true
+  }
+}
