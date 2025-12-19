@@ -1,0 +1,26 @@
+name: Deploy to Neocities
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Content Filter
+      run: |
+        FORBIDDEN="jsh_display"
+        if grep -riE "$FORBIDDEN" .; then
+          echo "Error: Forbidden content detected!"
+          exit 1
+        fi
+
+    - name: Deploy to Neocities
+      uses: bcomnes/deploy-to-neocities@v1
+      with:
+        api_key: ${{ secrets.NEOCITIES_API_KEY }}
+        cleanup: false
